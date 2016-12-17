@@ -1,0 +1,138 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include "functions.h"
+
+/* int * get_ints(int argc, char** argv, int reqnum) */
+/* { */
+/*   int* return_vals = malloc (sizeof (int) * (reqnum)); */
+
+/*   for (int i = 0; i < reqnum; i++) */
+/*     if (argc > i) */
+/*       sscanf(return_vals[i]...); */
+      
+/* } */
+
+char* get_string(int argc, char** argv, int reqnum)
+{
+  char* the_input = malloc (sizeof (char) * (MAX_INPUT_WIDTH+1));
+  the_input[0] = '\0';
+
+  
+  if (argc > 1)
+    strcpy(the_input,argv[1]);
+  if (argc > 2)
+    for (int i = 2; i <= reqnum && i < argc; i++)
+      {
+	strcat(the_input,"\t");
+	strcat(the_input,argv[i]);
+      }
+
+  if (argc-1 < reqnum)
+    {
+      if (argc > 1)
+	strcat(the_input,"\t");
+      strcat(the_input,get_input());
+      for (int i = 1; i < reqnum - (argc-1); i++)
+	{
+	  strcat(the_input,"\t");
+	  strcat(the_input,get_input());
+	}
+    }
+  return the_input;
+}
+
+char* get_input()
+{
+  char* the_input = malloc (sizeof (char) * (MAX_INPUT_WIDTH+1));
+  the_input[0] = '\0';
+  
+  printf("Give the value: ");
+  fgets(the_input,MAX_INPUT_WIDTH,stdin);
+  if (the_input[strlen(the_input)-1] = '\n')
+    the_input[strlen(the_input)-1] = '\0';
+
+  if (strlen(the_input) == 0)
+    {
+      printf("zero length string error\n");
+      exit(1);
+    }
+
+  return the_input;
+}
+
+int get_int(int argc, char** argv)
+{
+  char* in_string = get_string(argc,argv,1);
+  int the_number = 0;
+
+  if (sscanf(in_string,"%d",&the_number) == -1)
+    {
+      printf("cannot turn your input into an integer, exiting...\n");
+      exit(1);
+    }
+
+  return the_number;
+}
+
+long get_long(int argc, char** argv)
+{
+  char* in_string = get_string(argc,argv,1);
+  long the_number = 0;
+
+  if (sscanf(in_string,"%ld",&the_number) == -1)
+    {
+      printf("cannot turn your input into a long integer, exiting...\n");
+      exit(1);
+    }
+
+  return the_number;
+}
+
+long long get_longlong(int argc, char** argv)
+{
+  char* in_string = get_string(argc,argv,1);
+  long long the_number = 0;
+
+  if (sscanf(in_string,"%lld",&the_number) == -1)
+    {
+      printf("cannot turn your input into a long long integer, exiting...\n");
+      exit(1);
+    }
+
+  return the_number;
+}
+
+float get_float(int argc, char** argv)
+{
+  char* in_string = get_string(argc,argv,1);
+  float the_number = 0;
+
+  if (sscanf(in_string,"%f",&the_number) == -1)
+    {
+      printf("cannot turn your input into a floating point number, exiting...\n");
+      exit(1);
+    }
+
+  return the_number;
+}
+
+double get_double(int argc, char** argv)
+{
+  char* in_string = get_string(argc,argv,1);
+  double the_number = 0;
+
+  if (sscanf(in_string,"%lf",&the_number) == -1)
+    {
+      printf("cannot turn your input into a double precision floating point number, exiting...\n");
+      exit(1);
+    }
+
+  return the_number;
+}
+
+/* legacy */
+long process_input(int argc, char** argv)
+{
+  return get_long(argc,argv);
+}

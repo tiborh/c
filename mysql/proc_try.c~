@@ -1,0 +1,107 @@
+#include <my_global.h>
+#include <mysql.h>
+#include <string.h>
+#include <stdbool.h>
+#include <ctype.h>
+
+#define DAYS 1
+#define DEBUG 0
+#define TAGDATA 256
+#define INPUT_ITEMS 2
+
+typedef struct input_info {
+  char key[TAGDATA+1];
+  char value[TAGDATA+1};
+} INPUTD;
+
+void finish_with_error(MYSQL *con)
+{
+  fprintf(stderr, "%s\n", mysql_error(con));
+  mysql_close(con);
+  exit(1);        
+}
+
+void print_head(char* title_txt)
+{
+  printf("%s%c%c\n",
+	 "Content-Type:text/html;charset=utf-8",13,10); /* LF & CR */
+
+  printf("<!doctype html>\n");
+  printf("<html>\n");
+
+  printf("<head>\n");
+  printf("\t<title>%s</title>\n",title_txt);
+  printf("</head>\n");
+
+  printf("<body>\n");
+  printf("<h3>%s</h3>\n",title_txt);
+}
+
+void print_tail()
+{
+  printf("</body>\n");
+  printf("</html>\n");
+}
+
+char* get_data()
+{
+  char *data;
+
+  data = getenv("QUERY_STRING");
+
+  if(data == NULL)
+      printf("<p>No data has passed to the script.</p>\n");
+
+  return data;
+}
+
+ proc_data(char *data)
+{
+  /* presumes that data is not NULL */
+  INPUTD *the_input;
+  
+  return the_input;
+}
+
+INPUTD* set_defaults()
+{
+  INPUTD *the_input = malloc(sizeof(INPUTD) * INPUT_ITEMS);
+  the_input[0].key = "days";
+  the_input[0].value = "0";
+  the_input[1].key = "sorts";
+  the_input[1].value = "eriref";
+  return the_input;
+}
+
+void print_data(INPUTD* the_input)
+{
+  for(int i; i < INPUT_ITEMS; ++i)
+    printf("<p>%s => %s</p>\n",the_input[i].key,the_input[i].value);
+}
+
+int main(int argc, char** argv)
+{
+  MYSQL *con;
+  MYSQL_RES *result;
+  char *data;
+  INPUTD *the_input;
+
+  print_head("Proc Test");
+  data = get_data();
+  /*
+  if (data == NULL)
+    the_input = set_defaults();
+  else
+    the_input = proc_data(data);
+  
+  print_data(the_input);
+  */
+  printf("<p>%s</p>",data);
+
+  print_tail();
+
+  mysql_free_result(result);
+  mysql_close(con);
+
+  return 0;
+}

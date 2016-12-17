@@ -1,0 +1,19 @@
+#include <gvc.h>
+#include <stdio.h>
+//#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  typedef struct mynode_s {
+    Agrec_t     h;
+    int         count;
+  } mynode_t;
+ 
+  mynode_t *data;
+  Agnode_t *n;
+  n = agnode(g,"mynodename",TRUE);
+  data = (mynode_t*)agbindrec(n,"mynode_t",sizeof(mynode_t),FALSE);
+  data->count = 1;
+
+  return 0;
+}

@@ -1,0 +1,18 @@
+graph G {
+	subgraph cluster0 {
+		node [style=filled,color=blue,fontcolor=yellow]
+		style=filled;
+		color=lightgrey;
+		node28 -- node29 [key=e02, color=yellow];
+		label="s1";
+	}
+
+	subgraph cluster1 {
+		style = filled;
+		color = lightblue;
+		node30 -- node31 [key=e03, color=red];
+		label = "s2";
+	}
+		node00 -- node28 [key=e00, color=grey];
+		node00 -- node30 [key=e01, color=cyan];
+}

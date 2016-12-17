@@ -1,0 +1,1 @@
+/*	Demonstrate pointer to void.	   Written by:	   Date:*/#include <stdio.h>int main (void){//	Local Declarations 	void* p;	int   i = 7;	float f = 23.5;//	Statements	p = &i;	printf ("i contains: %d\n", *((int*)p) );	p = &f;	printf ("f contains: %f\n", *((float*)p));	return 0;}	// main/*	Results:i contains 7f contains 23.500000*/

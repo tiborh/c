@@ -1,0 +1,155 @@
+Content-Type:text/html;charset=utf-8
+
+<!doctype html>
+<html>
+<head>
+	<title>Recent TR Activities</title>
+</head>
+<body>
+<h3>Recent TR Activities</h3>
+<p>No data has passed to the script.</p>
+<p>Number of days retrieved: 1</p>
+<!--
+select
+  eriref,
+  status,
+  statusexpl,
+  actionexpl,
+  phaseexpl,
+  eventdate,
+  eventtime,
+  userid,
+  mhoid,
+  datediff(now(),eventdatetime) as 'datediff' 
+from TRHISTORY 
+where datediff( curdate(), str_to_date(eventdate, '%d %b %Y') ) <= 1 
+group by eriref 
+order by eriref,eventdatetime desc
+-->
+<table border='1'>
+<tr>
+	<th>eriref</th>
+	<th>status</th>
+	<th>statusexpl</th>
+	<th>actionexpl</th>
+	<th>phaseexpl</th>
+	<th>eventdate</th>
+	<th>eventtime</th>
+	<th>userid</th>
+	<th>mhoid</th>
+	<th>datediff</th>
+</tr>
+<tr>
+	<td><a href='https://mhweb.ericsson.se/TREditWeb/faces/tredit/tredit.xhtml?eriref=HT58251'>HT58251</a></td>
+	<td>TA</td>
+	<td>Technical Answer Provided</td>
+	<td>Currently at</td>
+	<td>Accept</td>
+	<td>22 May 2015</td>
+	<td>10:53:25</td>
+	<td></td>
+	<td>CEADEV</td>
+	<td>0</td>
+</tr>
+<tr>
+</tr>
+<tr>
+	<td><a href='https://mhweb.ericsson.se/TREditWeb/faces/tredit/tredit.xhtml?eriref=HT75908'>HT75908</a></td>
+	<td>PA</td>
+	<td>Proposal Approved</td>
+	<td>Currently at</td>
+	<td>Design</td>
+	<td>21 May 2015</td>
+	<td>05:21:05</td>
+	<td></td>
+	<td>CEAMAINT</td>
+	<td>1</td>
+</tr>
+<tr>
+</tr>
+<tr>
+	<td><a href='https://mhweb.ericsson.se/TREditWeb/faces/tredit/tredit.xhtml?eriref=HT75999'>HT75999</a></td>
+	<td>CV</td>
+	<td>Correction Verified</td>
+	<td>Currently at</td>
+	<td>Design</td>
+	<td>21 May 2015</td>
+	<td>21:10:30</td>
+	<td></td>
+	<td>CEADEV</td>
+	<td>1</td>
+</tr>
+<tr>
+</tr>
+<tr>
+	<td><a href='https://mhweb.ericsson.se/TREditWeb/faces/tredit/tredit.xhtml?eriref=HT76846'>HT76846</a></td>
+	<td>TA</td>
+	<td>Technical Answer Provided</td>
+	<td>Currently at</td>
+	<td>Accept</td>
+	<td>21 May 2015</td>
+	<td>07:27:06</td>
+	<td></td>
+	<td>CEAMAINT</td>
+	<td>1</td>
+</tr>
+<tr>
+</tr>
+<tr>
+	<td><a href='https://mhweb.ericsson.se/TREditWeb/faces/tredit/tredit.xhtml?eriref=HT77169'>HT77169</a></td>
+	<td>RE</td>
+	<td>Registered</td>
+	<td>Set External Reference by</td>
+	<td>Node Level</td>
+	<td>21 May 2015</td>
+	<td>11:10:44</td>
+	<td>EFGMHSVC</td>
+	<td>EES-DEV</td>
+	<td>1</td>
+</tr>
+<tr>
+</tr>
+<tr>
+	<td><a href='https://mhweb.ericsson.se/TREditWeb/faces/tredit/tredit.xhtml?eriref=HT77381'>HT77381</a></td>
+	<td>AS</td>
+	<td>Assigned</td>
+	<td>Currently at</td>
+	<td>Design</td>
+	<td>21 May 2015</td>
+	<td>20:37:28</td>
+	<td>EJUNYMA</td>
+	<td>CEADEV</td>
+	<td>1</td>
+</tr>
+<tr>
+</tr>
+<tr>
+	<td><a href='https://mhweb.ericsson.se/TREditWeb/faces/tredit/tredit.xhtml?eriref=HT77547'>HT77547</a></td>
+	<td>RE</td>
+	<td>Registered</td>
+	<td>Currently at</td>
+	<td>Design</td>
+	<td>22 May 2015</td>
+	<td>09:24:32</td>
+	<td></td>
+	<td>CEADEV</td>
+	<td>0</td>
+</tr>
+<tr>
+</tr>
+<tr>
+	<td><a href='https://mhweb.ericsson.se/TREditWeb/faces/tredit/tredit.xhtml?eriref=HT77632'>HT77632</a></td>
+	<td>RE</td>
+	<td>Registered</td>
+	<td>Currently at</td>
+	<td>Design</td>
+	<td>22 May 2015</td>
+	<td>11:57:53</td>
+	<td></td>
+	<td>CEADEV</td>
+	<td>0</td>
+</tr>
+</table>
+<p>Number of data rows: 8</p>
+</body>
+</html>

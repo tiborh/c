@@ -1,0 +1,14 @@
+/* 
+   greedy.c gives how many coins the given value can be expressed in
+   coins to be used: quarter, dime, nickel, penny
+ */
+
+#include <stdio.h>
+
+int main(int argc, char **argv) {
+  int coins = {.25, .1, .05, .01};
+
+  print("Size of coins: %d\n",sizeof(coins));
+
+  return 0;
+}

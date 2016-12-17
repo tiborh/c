@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <time.h>
+
+#define DEBUG 1
+#define PAUSE 5
+
+int main(int argc, char **argv) {
+  clock_t start,end;
+  int pausedsecs=PAUSE;
+
+  start=clock();
+
+  printf("Now going to sleep for %d seconds.\n",pausedsecs);
+  sleep(pausedsecs);
+
+  end = clock();
+
+  printf("ncurses running time: %.2f seconds\n",(double)(end-start)/(double)(CLOCKS_PER_SEC));
+
+  return 0;
+}

@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>TR Queries</title>
+</head>
+<body>
+  <h1>TR Queries</h1>
+  <form action="cgi-bin/retrieve_recent_activity">
+    <p><div><label>Number of days:
+	  <input type="number" name="days" min="0" max="1000" value="7">
+      </label></div>
+    <div><input type="submit" value="TR activities"></div></p>
+  </form>
+  <form action="cgi-bin/new_trs">
+    <p><div><label>Number of days: 
+	  <input type="number" name="days" min="0" max="1000" value="7">
+    <div><input type="submit" value="New TRs"></div></p>
+  </form>
+  <h4>Enter your own "select" query</h4>
+  <form action="cgi-bin/cea_sql">
+    <p>select<div> 
+	<textarea name="message" rows="10" cols="100">
+eriref,status,datediff( curdate(), str_to_date(regdate, '%Y-%m-%d')) as 'regdays'
+from TR 
+where datediff( curdate(), str_to_date(regdate, '%Y-%m-%d') ) <= 3
+order by datediff( curdate(), str_to_date(regdate, '%Y-%m-%d') )</textarea>
+      </div>
+    <div><input type="submit" value="Run Query"></div></p>
+  </form>
+
+<p>Help to the database tables: <a target="_blank" href="http://gask2web.ericsson.se/pub/get?DocNo=1/19817-CXC1728314&HighestFree=N&HighestNotPRev=N">MH External Client API &mdash; User's Guide (1551-EN/LZN 765 0152/2)</a></p>
+
+</body>
+</html>

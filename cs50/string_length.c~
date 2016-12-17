@@ -1,0 +1,13 @@
+/* 
+   re-implementing strlen
+ */
+
+#include <stdio.h>
+
+int string_length(char *the_string) {
+  int length = 0;
+
+  while (the_string[length++] != '\0');
+
+  return length-1;
+}

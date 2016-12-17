@@ -1,0 +1,21 @@
+/* 
+   To examine the return values of sscanf
+
+ */
+
+#include <stdio.h>
+#include <string.h>
+
+#define NUM_OF_ARGS 256
+
+int main(int argc, char **argv) {
+
+  int the_args[NUM_OF_ARGS] = { 0 }
+
+  if (argc > 1) {
+    for(int i = 1; i <= argc && argc <= NUM_OF_ARGS; i++)
+      sscanf(argv, "%d", the_args[i]);
+  }
+
+  return 0;
+}

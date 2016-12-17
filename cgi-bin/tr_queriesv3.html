@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>TR Queries</title>
+</head>
+<body>
+  <h1>TR Queries</h1>
+
+  <p>All the query results available from this page are from a local MySQL database synchronised with MHWeb via JMS subscribtions. These subscriptions are only for TRs where either the <tt>regmho</tt> or the <tt>designmho</tt> belongs to CEA/EA.</p>
+
+  <div><br /><hr /><br /></div>
+
+  <h2>TR Activities</h2>
+  <form action="cgi-bin/retrieve_recent_activity">
+    <p><label>Number of days:</label> 
+	  <input type="number" name="days" min="0" max="1000" value="7" />
+	  <input type="submit" value="TR activities" />
+    </p>
+  </form>
+  <form action="cgi-bin/recent_activity_date">
+    <p><label>Starting date:</label> 
+      <input type="date" name="startday" min="2013-07-01" value="2015-05-26" />
+      <input type="submit" value="TR activities" />
+    </p>
+  </form>
+  <h2>New TR's</h2>
+  <form action="cgi-bin/new_trs">
+    <p><label>Number of days:</label> 
+	  <input type="number" name="days" min="0" max="1000" value="7" />
+	  <input type="submit" value="New TRs" />
+    </p>
+  </form>
+  <form action="cgi-bin/new_trs_date">
+    <p>
+      <label>Starting date:</label> 
+      <input type="date" name="startday" min="2013-07-01" value="2015-05-26" />
+      <input type="submit" value="New TRs" />
+    </p>
+  </form>
+
+  <div><br /><hr /><br /></div>
+
+  <h2>Enter Your Own &ldquo;<tt>select</tt>&rdquo; Query</h2>
+  <form action="cgi-bin/cea_sql">
+    <p>select</p>
+    <p><textarea name="message" rows="10" cols="100">
+eriref,status,datediff( curdate(), str_to_date(regdate, '%Y-%m-%d')) as 'regdays'
+from TR 
+where datediff( curdate(), str_to_date(regdate, '%Y-%m-%d') ) <= 3
+order by datediff( curdate(), str_to_date(regdate, '%Y-%m-%d') )</textarea><br />
+    <input type="submit" value="Run Query"></p>
+  </form>
+
+  <p>Help to the database tables: <a target="_blank" href="http://gask2web.ericsson.se/pub/get?DocNo=1/19817-CXC1728314&HighestFree=N&HighestNotPRev=N">MH External Client API &mdash; User's Guide (1551-EN/LZN 765 0152/2)</a></p>
+
+  <div><br /><hr /><br /></div>
+
+<h2>Experimental stuff</h2>
+
+  <div><br /><hr /><br /></div>
+
+<h2>Backlog</h2>
+
+  <p>The list may expand and priorities may change. Please feel free to vote on features or promote new ones.</p>
+
+  <ol>
+    <li>Select which column to appear</li>
+    <li>Listing of available tables</li>
+    <li>Listing of available data in tables</li>
+    <li>Sortable table rows</li>
+  </ol>
+
+</body>
+</html>

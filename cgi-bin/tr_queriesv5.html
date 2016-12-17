@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>TR Queries</title>
+</head>
+<body>
+  <h1>TR Queries</h1>
+
+<p>All the query results available from this page are from a local MySQL database synchronised with MHWeb via JMS subscribtions. These subscriptions are only for TRs where either the <tt>regmho</tt> or the <tt>designmho</tt> belongs to CEA/EA.</p>
+
+  <table name="queryforms">
+    <tr>
+      <td width="50%">
+	<div>
+	  <form name="tractivities" action="cgi-bin/cgibin_mhapi">
+	    <input type="hidden" name="prog" value="a">
+	    <fieldset><legend>TR Activities (for)</legend>
+	      <p>
+		Number of days:
+		<input type="number" name="days" min="0" max="1000" value="7" />
+	      </p>
+	      <fieldset name="sortopts">
+		<legend>Sort by</legend>
+		<input type="radio" name="sorts" value="eriref" checked />eriref
+		<input type="radio" name="sorts" value="days" />days
+	      </fieldset>
+	      <p>
+		<input type="submit" value="TR activities" />
+	      </p>
+	    </fieldset>
+	  </form>
+	</div>
+      </td>
+      <td width="50%">
+	<div>
+	  <form name="newtrs" action="cgi-bin/cgibin_mhapi">
+	    <input type="hidden" name="prog" value="b">
+	    <fieldset><legend>TR Activities (since)</legend>
+	      <p><label>Starting date:</label> 
+		<input type="date" name="startday" min="2013-07-01" />
+	      </p>
+	      <fieldset name="sortopts">
+		<legend>Sort by</legend>
+		<input type="radio" name="sorts" value="eriref" checked />eriref
+		<input type="radio" name="sorts" value="days" />days
+	      </fieldset>
+	      <p>
+		<input type="submit" value="TR activities" />
+	      </p>
+	    </fieldset>
+	  </form>
+	</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+	<div>
+	  <form name="newtrs" action="cgi-bin/cgibin_mhapi">
+	    <input type="hidden" name="prog" value="c">
+	    <fieldset><legend>New TRs (for)</legend>
+	      <p>
+		Number of days:
+		<input type="number" name="days" min="0" max="1000" value="7" />
+	      </p>
+	      <fieldset name="sortopts">
+		<legend>Sort by</legend>
+		<input type="radio" name="sorts" value="eriref" checked />eriref
+		<input type="radio" name="sorts" value="days" />days
+	      </fieldset>
+	      <p>
+		<input type="submit" value="New TRs" />
+	      </p>
+	    </fieldset>
+	  </form>
+	</div>
+      </td>
+      <td>
+	<div>
+	  <form name="newtrs" action="cgi-bin/cgibin_mhapi">
+	    <input type="hidden" name="prog" value="d">
+	    <fieldset><legend>New TRs (since)</legend>
+	      <p><label>Starting date:</label> 
+		<input type="date" name="startday" min="2013-07-01" />
+	      </p>
+	      <fieldset name="sortopts">
+		<legend>Sort by</legend>
+		<input type="radio" name="sorts" value="eriref" checked />eriref
+		<input type="radio" name="sorts" value="days" />days
+	      </fieldset>
+	      <p>
+		<input type="submit" value="New TRs" />
+	      </p>
+	    </fieldset>
+	  </form>
+	</div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" width="100%">
+	<div>
+	  <form action="cgi-bin/cea_sql">
+	    <fieldset><legend>SQL &ldquo;<tt>select</tt>&rdquo; Query</legend>
+	    <p>select...</p>
+	    <p><textarea name="message" rows="10" cols="65">
+eriref,status,
+datediff( 
+    curdate(), 
+    str_to_date(regdate, '%Y-%m-%d')
+  ) as 'regdays'
+from TR 
+where datediff( curdate(), str_to_date(regdate, '%Y-%m-%d') ) <= 3
+order by datediff( curdate(), str_to_date(regdate, '%Y-%m-%d') )
+              </textarea>
+	    </p>
+	    <p><input type="submit" value="Run Query"></p>
+	  </form>
+	</div>
+      </td>
+    </tr>
+  </table>
+
+  <p>Help to the database tables: <a target="_blank" href="http://gask2web.ericsson.se/pub/get?DocNo=1/19817-CXC1728314&HighestFree=N&HighestNotPRev=N">MH External Client API &mdash; User's Guide (1551-EN/LZN 765 0152/2)</a></p>
+
+<h2>Experimental stuff</h2>
+
+<div>
+<form action="cgi-bin/show_tables" target="_blank">
+  <input type="submit" value="show db tables" />
+</form>
+</div>
+<div>
+<form action="cgi-bin/show_tables_select" target="_blank">
+  <input type="submit" value="show db tables in select" />
+</form>
+</div>
+
+<h2>Backlog</h2>
+
+  <p>The list may expand and priorities may change. Please feel free to vote on features or promote new ones.</p>
+
+  <ol>
+    <li>Select which column to appear</li>
+    <li>Listing of available tables</li>
+    <li>Listing of available data in tables</li>
+    <li>Sortable table rows</li>
+  </ol>
+
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(int argc, char **argv) {
+
+  time_t *pt_time;
+  long int inttimeval;
+
+  inttimeval = time(pt_time);
+
+  printf("Raw time is: %ld\n",inttimeval);
+  printf("Raw time pointed at: %ld\n",*pt_time);
+
+  return 0;
+}

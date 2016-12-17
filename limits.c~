@@ -1,0 +1,12 @@
+#include <stdio.h>
+#include <limits.h>
+
+int main(int argc, char** argv)
+{
+  printf("Char limits: [%d, %d]\n", CHAR_MIN, CHAR_MAX);
+  printf("Short limits: [%d, %d]\n", SHRT_MIN, SHRT_MAX);
+  printf("Integer limits: [%d, %d]\n", INT_MIN, INT_MAX);
+  printf("Long limits: [%ld, %ld]\n", LONG_MIN, LONG_MAX);
+
+  return 0;
+}

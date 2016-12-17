@@ -1,0 +1,66 @@
+//may come useful:
+//#define _POSIX_C_SOURCE 200112L
+//#define _ISOC99_SOURCE
+//#define __EXTENSIONS__
+//#define _GNU_SOURCE
+//more in /usr/include/features.h
+
+#include <stdio.h>
+//#include <stdlib.h>
+//#include <string.h>
+//#include <time.h>
+//#include <math.h>
+//#include <ctype.h>
+//#include <stdbool.h>
+
+bool validate(char* data)
+{
+    if(data[0] == 's' &&
+       data[1] == 't' &&
+       data[2] == 'a' &&
+       data[3] == 'r' &&
+       data[4] == 't' &&
+       data[5] == 'd' &&
+       data[6] == 'a' &&
+       data[7] == 'y' &&
+       data[8] == '=' &&
+       isnum(data[9]) &&
+       isnum(data[10]) &&
+       isnum(data[11]) &&
+       isnum(data[12]) &&
+       data[13] == '-' &&
+       isnum(data[14]) &&
+       isnum(data[15]) &&
+       data[16] == '-' &&
+       isnum(data[17]) &&
+       isnum(data[18]) &&
+       data[19] == '&' &&
+       data[20] == 'e' &&
+       data[21] == 'n' &&
+       data[22] == 'd' &&
+       data[23] == 'd' &&
+       data[24] == 'a' &&
+       data[25] == 'y' &&
+       data[26] == '=' &&
+       isnum(data[27]) &&
+       isnum(data[28]) &&
+       isnum(data[29]) &&
+       isnum(data[30]) &&
+       data[31] == '-' &&
+       isnum(data[32]) &&
+       isnum(data[33]) &&
+       data[34] == '-' &&
+       isnum(data[35]) &&
+       isnum(data[36])
+       )
+        return true;
+    else
+        return false;
+}
+
+int main(int argc, char** argv)
+{
+  printf("number of args: %d\n",argc);
+
+  return 0;
+}

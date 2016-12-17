@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Multiplication</title>
+</head>
+<body>
+  <h1>The Form</h1>
+  <form action="cgi-bin/simple_query">
+    <p><div><label>Multiplicand 1: <input name="m" size="5"></label></div></p>
+    <p><div><label>Multiplicand 2: <input name="n" size="5"></label></div></p>
+    <p><div><input type="submit" value="Multiply!"></div></p>
+  </form>
+</body>
+</html>

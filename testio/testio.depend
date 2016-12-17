@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1419200374 source:/home/tibor/Dropbox/c/testio/iofuns.c
+	<stdio.h>
+	<stdlib.h>
+	"testio.h"
+
+1419202232 /home/tibor/Dropbox/c/testio/testio.h
+
+1419202153 source:/home/tibor/Dropbox/c/testio/main.c
+	<stdio.h>
+
+1419202670 source:/home/tibor/Dropbox/c/testio/gen_input_file.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"testio.h"
+
+1419202413 source:/home/tibor/Dropbox/c/testio/proc_input_file.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"testio.h"
+
+1419181496 source:/home/tibor/Dropbox/c/testio/fscanf_input_file.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"testio.h"
+

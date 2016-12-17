@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main(int argc, char** argv)
+{
+  char* the_pattern = malloc((3 * COLS + 1)*sizeof(char));
+  *the_pattern = '\0';
+  char tempstr[8];
+  sprintf(tempstr,"%%d%c",DATSEP);
+  strcat(the_pattern,tempstr);
+  printf(the_pattern,3);
+
+  return 0;
+}

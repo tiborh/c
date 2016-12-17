@@ -1,0 +1,2 @@
+CFLAGS="-std=c99 -Wall -Werror -fcolor-diagnostics"
+LDFLAGS="-lm"

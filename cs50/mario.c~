@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+/* 
+   mario.c draws half pyramid in terminal window 
+   valid input values: 0 to 23
+   invalid input value results in repeated reqest for input.
+*/
+
+int main(int argc, char **argv) {
+  int input_value = 0;
+
+  do {
+
+  } while (input_value < 0 && 23 < input_value)
+
+  return 0;
+}

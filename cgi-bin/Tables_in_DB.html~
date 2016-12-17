@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+	<title>Tables in DB</title>
+</head>
+<body>
+<h3>Tables in DB</h3>
+<!--
+show tables
+-->
+<form method='POST' action='post_test.pl' target='_blank'>
+	<select>
+		<option value='15ep1'>15ep1</option>
+		<option value='20ep4'>20ep4</option>
+		<option value='ACTIVITYDATA'>ACTIVITYDATA</option>
+		<option value='ACTIVITYENCLOSURE'>ACTIVITYENCLOSURE</option>
+		<option value='ACTIVITYHISTORY'>ACTIVITYHISTORY</option>
+		<option value='HEADER'>HEADER</option>
+		<option value='OBJECTVERSION'>OBJECTVERSION</option>
+		<option selected='selected' value='TR'>TR</option>
+		<option value='TRANSWER'>TRANSWER</option>
+		<option value='TRCHANGEORDERDATA'>TRCHANGEORDERDATA</option>
+		<option value='TRCHANGEORDERFILE'>TRCHANGEORDERFILE</option>
+		<option value='TRCHANGEORDERNOTE'>TRCHANGEORDERNOTE</option>
+		<option value='TRCHILD'>TRCHILD</option>
+		<option value='TRCLONEFROM'>TRCLONEFROM</option>
+		<option value='TRCLONETO'>TRCLONETO</option>
+		<option value='TRCNIMEASURE'>TRCNIMEASURE</option>
+		<option value='TRCORRMEASURE'>TRCORRMEASURE</option>
+		<option value='TRDECISION'>TRDECISION</option>
+		<option value='TRDOCMEASURE'>TRDOCMEASURE</option>
+		<option value='TRENCLOSURES'>TRENCLOSURES</option>
+		<option value='TREXTERNALREFS'>TREXTERNALREFS</option>
+		<option value='TRFILEREFERENCE'>TRFILEREFERENCE</option>
+		<option value='TRFMT'>TRFMT</option>
+		<option value='TRHISTORY'>TRHISTORY</option>
+		<option value='TRMAPPEDFROM'>TRMAPPEDFROM</option>
+		<option value='TRMAPPEDTO'>TRMAPPEDTO</option>
+		<option value='TRMEASURE'>TRMEASURE</option>
+		<option value='TRNOTEBOOKLOG'>TRNOTEBOOKLOG</option>
+		<option value='TRPARENT'>TRPARENT</option>
+		<option value='TRPRODMEASURE'>TRPRODMEASURE</option>
+		<option value='TRPROGRESSINFO'>TRPROGRESSINFO</option>
+		<option value='TRSECONDARYTRS'>TRSECONDARYTRS</option>
+		<option value='answerview'>answerview</option>
+		<option value='new_trs'>new_trs</option>
+		<option value='nu_of_trs_by_status'>nu_of_trs_by_status</option>
+		<option value='recent_activities'>recent_activities</option>
+		<option value='regview'>regview</option>
+		<option value='terminaview'>terminaview</option>
+		<option value='tr_answer_times'>tr_answer_times</option>
+		<option value='tr_answer_times_by_prio_per_week'>tr_answer_times_by_prio_per_week</option>
+		<option value='tr_answer_times_dev'>tr_answer_times_dev</option>
+		<option value='tr_answer_times_maint'>tr_answer_times_maint</option>
+		<option value='tr_io_1'>tr_io_1</option>
+		<option value='tr_io_2'>tr_io_2</option>
+		<option value='trs_by_status'>trs_by_status</option>
+	</select>
+	<input type='submit' value='show table heads' />
+</form>
+</body>
+</html>

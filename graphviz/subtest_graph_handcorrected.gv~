@@ -1,0 +1,24 @@
+graph G {
+	color=pink;
+	label=g;
+	style=filled;
+	
+	subgraph asub0 {
+		color=lightgrey;
+		label=s1;
+		style=filled;
+		node00 -- node28 [key=e00,
+		color=grey];
+	node28 -- node29 [key=e02,
+	color=yellow];
+}
+subgraph asub1 {
+	color=lightblue;
+	label=s2;
+	style=filled;
+node00 -- node30 [key=e01,
+color=cyan];
+node30 -- node31 [key=e03,
+color=red];
+}
+}

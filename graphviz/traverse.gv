@@ -1,0 +1,11 @@
+digraph G {
+	n0 -> n1 [key=e0];
+n0 -> n2 [key=e1];
+n2 -> n3 [key=e2];
+n2 -> n4 [key=e3];
+n4 -> n5 [key=e4];
+n4 -> n6 [key=e5];
+n6 -> n7 [key=e6];
+n6 -> n8 [key=e7];
+n8 -> n9 [key=e8];
+}

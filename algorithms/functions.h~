@@ -1,0 +1,20 @@
+#ifndef MAX_INPUT_WIDTH
+#define MAX_INPUT_WIDTH 512
+#endif
+
+#ifndef FUNCTIONS_H_INCLUDED
+#define FUNCTIONS_H_INCLUDED
+/* ^^ these are the include guards */
+
+/* Prototypes for the functions */
+char* get_input();
+char* get_string(int, char**,int);
+int get_int(int, char**);
+long get_long(int, char**);
+long long get_longlong(int, char**);
+float get_float(int, char**);
+double get_double(int, char**);
+/* legacy: */
+/* process  argc argv style input and return the first argument as long integer */
+long process_input(int, char**);
+#endif

@@ -1,0 +1,1 @@
+/*	This include file contains the link list functions	developed in Chapter 15.	   Written by: 	   Date:  */#ifndef STACK_HEADER   #define STACK_HEADER//	Include Files for Functions        #include "P15-09.c"      // Push     #include "P15-10.c"      // Pop     #include "P15-12.c"      // Insert Data#include "P15-13.c"      // Print #endif

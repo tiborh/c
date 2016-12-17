@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+enum dat_type {integer, longint, longlong, floating, doublefloat, longdouble, string};
+typedef enum dat_type DatType;
+
+void print_DataType(DatType data)
+{
+  switch (data)
+    {
+    case integer:
+      printf("type of argument(s) needed: int\n");
+      break;
+    default:
+      printf("Not yet implemented.\n");
+    }
+}
+
+/* structs could be embedded into each other */
+struct Input {
+  int num_of_args;
+  char** args;
+  int nu_of_needed;
+  DatType type_of_needed;
+};
+typedef struct Input myInput;
+
+int main(int argc, char **argv) {
+  myInput input = {argc, argv, 2, integer};
+  
+  if (input.num_of_args > 1)
+    {
+      for(int i = 1; i < input.num_of_args && i <= input.nu_of_needed; i++)
+	{
+	  printf("%s\n",input.args[i]);
+	}
+      //printf("type of argument(s) needed: %s\n",input.type_of_needed);
+      print_DataType(input.type_of_needed);
+      if (input.num_of_args-1 < input.nu_of_needed)
+	printf("fewer arguments than needed\n");
+      else if (input.num_of_args-1 > input.nu_of_needed)
+	printf("more arguments than needed\n");
+      else if (input.num_of_args-1 == input.nu_of_needed)
+	printf("just the right number of arguments\n");
+    }
+  else
+    printf("no arguments\n");
+  
+}
+

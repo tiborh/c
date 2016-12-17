@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include "menu_items.h"
+
+void item1(void)
+{
+  puts("item1 has been selected"
+}
+
+void item2(void)
+{
+  puts("item2 has been selected"
+}
+
+void item3(void)
+{
+  puts("item3 has been selected"
+}

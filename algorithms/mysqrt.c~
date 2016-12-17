@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <math.h>
+
+double mysqrt(double);
+
+int main(int argc, char** argv)
+{
+  //printf("argc: %d\n",argc);
+  if (argc < 2)
+    printf("Give an integer as argument.\n");
+  else
+    {
+      //printf("first argument as string: %s\n",argv[1]);
+      double the_number;      
+      sscanf(argv[1],"%lf",&the_number);
+      //printf("first argument as integer: %d\n",the_number);
+      printf("The square root estimation of %lf is %lf.\n",the_number,mysqrt(the_number));
+      printf("Square root from math library: %lf\n",sqrt((double)the_number));
+    }
+    
+  return 0;
+}
+
+double mysqrt(double radical)
+{
+  double myradical = radical;
+  double root = myradical;
+  double tolerance = 1e-15;
+  double mytolerance = tolerance * myradical;
+  printf("Radical as float: %lf\n",myradical);
+  printf("Tolerance = %e\n",mytolerance);
+  
+  //printf("diff: %lf\n",root * root - myradical);
+  printf("diff: %lf\n",fabs(root * root - myradical));
+  while(fabs(root * root - myradical) > mytolerance)
+    {
+      printf("Estimate: %lf (difference %e)\n",root,root*root-myradical);
+      root = (root + myradical / root) / 2.0;
+      //if (root > myradical)
+      //break;
+    }
+
+  return fabs(root);
+}

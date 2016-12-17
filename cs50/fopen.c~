@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main(int argc, char **argv) {
+  FILE *outfile;
+  char myfile[] = "outfile.txt";
+  if ((outfile = fopen(myfile,"w")) == NULL) {
+    printf("Cannot open %s for writing\n",myfile);
+    exit(1);
+  }
+  fprintf(outfile,"Dictionary size: %d\n",98);
+  for (int i = 0; i < 98; i++) {
+    fprintf(outfile,"%s, ","something");
+  }
+  fclose(outfile);
+
+
+  return 0;
+}

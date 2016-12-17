@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  char* teststr = "86";
+  int testint = 0;
+  int sscanout = sscanf(teststr,"%d",&testint);
+  printf("sscanout: %d\n",sscanout);
+  printf("testint: %d\n",testint);
+
+  return 0;
+}

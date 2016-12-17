@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>TR Queries</title>
+  <style>
+    table, th, td {
+    border-style: none;
+    }
+    th, td {
+    padding: 5px;
+    }
+
+    table.outside {
+    border: 1px solid black;
+    padding: 10px;
+    }
+
+    table.heading {
+    padding-top: 15px;
+    padding-bottom: 0px;
+    }
+  </style>
+</head>
+<body>
+  <h1>TR Queries</h1>
+  <p>All the query results available from this page are from a local MySQL database synchronised with MHWeb via JMS subscribtions. These subscriptions are only for TRs where either the <tt>regmho</tt> or the <tt>designmho</tt> belongs to CEA/EA.</p>
+  <table class="outside" name="trforms">
+    <tr>
+      <td colspan="2" width="100%">
+	<table class="heading" width="100%" name="tractivitieshead">
+	  <tr>
+	    <th width="100%">TR Activities</th>
+	  </tr>
+	</table>
+      </td>
+    </tr>
+    <tr>
+      <td width="40%">
+	<div>
+	  <form name="tractivities1" action="cgi-bin/retrieve_recent_activity">
+	    <fieldset><legend>For (days)</legend>
+	      <p>
+		<input type="number" name="days" min="0" max="1000" value="7" />
+		<input type="submit" value="TR activities" />
+	      </p>
+	    </fieldset>
+	  </form>
+	</div>
+      </td>
+      <td width="60%">
+	<div>
+	  <form name="tractivities2" action="cgi-bin/recent_activity_date">
+	    <fieldset><legend>Since</legend>
+	      <p>
+		<input type="date" name="startday" min="2013-07-01" />
+		<input type="submit" value="TR activities" />
+	      </p>
+	    </fieldset>
+	  </form>
+	</div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" width="100%">
+	<table class="heading" width="100%" name="newtrshead">
+	  <tr>
+	    <th width="100%">New TR's</th>
+	  </tr>
+	</table>
+      </td>
+    </tr>
+    <tr>
+      <td width="40%">
+	<div>
+	  <form name="newtrs11" action="cgi-bin/new_trs">
+	    <fieldset><legend>For (days)</legend>
+	      <p>
+		<input type="number" name="days" min="0" max="1000" value="7" />
+		<input type="submit" value="TR activities" />
+	      </p>
+	    </fieldset>
+	  </form>
+	</div>
+      </td>
+      <td width="60%">
+	<div>
+	  <form name="newtrs2" action="cgi-bin/new_trs_date">
+	    <fieldset>
+	      <legend>Since</legend>
+	      <p>
+		<input type="date" name="startday" min="2013-07-01" />
+		<input type="submit" value="TR activities" />
+	      </p>
+	    </fieldset>
+	  </form>
+	</div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" width="100%">
+	<table class="heading" width="100%" name="selectqueryhead">
+	  <tr>
+	    <th width="100%">Enter Your Own Query</th>
+	  </tr>
+	</table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" width="100%">
+	<form action="cgi-bin/cea_sql">
+	  <fieldset>
+	    <legend>select</legend>
+	    <p><textarea name="message" rows="10" cols="65">
+  eriref,
+  status,
+  datediff(curdate(),str_to_date(regdate,'%Y-%m-%d')) as 'regdays'
+from TR 
+where datediff(curdate(), str_to_date(regdate,'%Y-%m-%d')) <= 3
+order by datediff( curdate(), str_to_date(regdate,'%Y-%m-%d'))
+	       </textarea><br />
+	       <input type="submit" value="Run Query">
+	    </p>
+	  </fieldset>
+	</form>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+	<p>Help to the database tables:<br />
+	  <a target="_blank" href="http://gask2web.ericsson.se/pub/get?DocNo=1/19817-CXC1728314&HighestFree=N&HighestNotPRev=N">MH External Client API &mdash; User's Guide (1551-EN/LZN 765 0152/2)</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" width="100%">
+	<table class="heading" width="100%" name="selectqueryhead">
+	  <tr>
+	    <th width="100%">Search for</th>
+	  </tr>
+	</table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+	<form action="cgi-bin/tr_search">
+	  <fieldset><legend>Multiple TR's</legend>
+	  <p>Enter several TR numbers (the current maximum is 100), separating them with non-alphanumeric chars.</p>
+	  <p><b>Note:</b> Only CEA/EA TR's are recognised, where <i>CEADEV</i> or <i>CEAMAINT</i> is either <i>Design MHO</i> or <i>Register MHO</i>.</p>
+	  <p><textarea name="message" rows="10" cols="65"></textarea><br />
+	    <input type="submit" value="Run Query"></p>
+	  </fieldset>
+	</form>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" width="100%">
+	<table class="heading" width="100%" name="selectqueryhead">
+	  <tr>
+	    <th width="100%">TR History for</th>
+	  </tr>
+	</table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+	<form action="cgi-bin/get_history" target="_blank>">
+	  <fieldset><legend>Single TR</legend>
+	    <p>Enter a TR number: 
+	      <input type="text" name="message" maxlength="7" size="7"></input> 
+	      <input type="submit" value="Run Query"></p>
+	  </fieldset>
+	</form>
+      </td> 
+    </tr>
+    <tr>
+      <td colspan="2">
+	<form action="cgi-bin/get_history" target="_blank>">
+	  <fieldset><legend>Multiple TR's</legend>
+	  <p>Enter a TR number for which you need the history.</p>
+	  <p><textarea name="message" rows="10" cols="65"></textarea><br />
+	    <input type="submit" value="Run Query"></p>
+	  </fieldset>
+	</form>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+	<p><b>Note:</b> Only CEA/EA TR's are recognised, where <i>CEADEV</i> or <i>CEAMAINT</i> is either <i>Design MHO</i> or <i>Register MHO</i>.</p>
+      </td>
+    </tr>
+  </table>
+  <div><br /><hr /><br /></div>
+<h2>Experimental stuff</h2>
+<div>
+  <form action="cgi-bin/show_tables" target="_blank">
+    <input type="submit" value="show db tables" />
+  </form>
+</div>
+<div>
+  <form action="cgi-bin/show_tables_select" target="_blank">
+    <input type="submit" value="show db tables in select" />
+  </form>
+</div>
+<div><br /><hr /><br /></div>
+<h2>Backlog</h2>
+  <p>The list may expand and priorities may change. Please feel free to vote on features or promote new ones.</p>
+  <ol>
+    <li>Select which column to appear (ongoing)</li>
+    <li>Listing of available tables (ongoing)</li>
+    <li>Listing of available data in tables (ongoing)</li>
+    <li>Sortable table rows</li>
+  </ol>
+</body>
+</html>

@@ -1,0 +1,40 @@
+#include <gvc.h>
+
+int main(int argc, char **argv)
+{
+  /* toplevel graph: */
+  Agraph_t *g;
+
+  /* digraph G {} */
+  g = agopen("G", Agdirected, NULL);
+
+  /* so far same as first.c */
+
+  /* a new node: */
+  Agnode_t *n;
+  n = agnode(g,"node28",TRUE);	
+  /* 1st: (sub)graph; 
+     2nd: name (NULL if anonymous)
+     3rd: if TRUE: create if does not exist,
+          if FALSE: search, and return NULL if not found
+  */
+
+  /* degree:
+     in-degree:
+     agdegree(g,n,TRUE,FALSE) 
+
+     out-degree:
+     agdegree(g,n,FALSE,TRUE)
+
+     sum of above two:
+     agdegree(g,n,TRUE,TRUE)
+
+     using:
+     agcountuniqedges
+     counts loops only ones, if last two are TRUE
+   */
+
+
+
+  return 0;
+}
