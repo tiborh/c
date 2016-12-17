@@ -1,8 +1,0 @@
-#include <stdio.h>
-
-int main(int argc, char **argv) {
-  const int i = 7; 		/* only at compile time */
-
-  printf("const %d\n",i);
-  return 0;
-}

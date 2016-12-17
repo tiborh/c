@@ -1,8 +1,0 @@
-#include <stdio.h>
-
-int main(int argc, char** argv)
-{
-  print("size of clock_t: %d\n",sizeof(clock_t));
-
-  return 0;
-}

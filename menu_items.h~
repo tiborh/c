@@ -1,8 +1,0 @@
-#ifndef MENU_ITEMS_H
-#define MENU_ITEMS_H
-
-void item1(void);
-void item2(void);
-void item3(void);
-
-#endif
