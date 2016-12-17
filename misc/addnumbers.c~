@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int* get_numbers()
+{
+  int* numbers = NULL;
+
+  return numbers;
+}
+
+int main(int argc, char** argv)
+{
+
+
+  return 0;
+}

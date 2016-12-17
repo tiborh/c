@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define SIDES 6
+#define R_SIDE (rand() % SIDES + 1)
+
+int main(int argc, char** argv)
+{
+
+
+  return 0;
+}
