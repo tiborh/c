@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define SIDES 6
+#define R_SIDE (rand() % SIDES + 1)
+#define INPUT_LENGTH 16
+
+int main(int argc, char** argv) {
+  srand(clock());
+
+  printf("\nEnter number of trials: ");
+
+  char[INPUT_LENGTH] input_str;
+  fgets(input_str,INPUT_LENGTH,stdin);
+  int trials;
+  sscanf(input_str,%d,&trials);
+
+  printf("nu of trials: %d\n",trials);
+
+  return(0);
+}
