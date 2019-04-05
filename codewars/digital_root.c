@@ -1,26 +1,51 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <math.h>
+
+int num_of_digits(int n) {
+  int retval = log10(n);
+  return ++retval;
+}
+
+int char_to_num(char c) {
+  char char_str[2];
+  sprintf(char_str,"%c",c);
+  return atoi(char_str);
+}
+
+int digital_root_common(int n) {
+  int num_of_d = num_of_digits(n);
+  char num_str[n+1];
+  sprintf(num_str,"%d",n);
+  int sum = 0;
+  for(int i = 0; i < num_of_d; ++i)
+    sum += char_to_num(num_str[i]);
+  printf("from %d to %d\n",n,sum);
+  return sum;
+}
+
+int digital_root_iter(int n) {
+  while(n > 9)
+    n = digital_root_common(n);
+  return n;
+}
+  
+int digital_root_recur(int n) {
+  if (n < 10)
+    return n;
+  n = digital_root_common(n);
+  return digital_root_recur(n);
+}
 
 int digital_root(int n) {
   if (n < 0) {
     printf("Only non-negative integers are accepted.\n");
     return EXIT_FAILURE;
   }
-  if (n < 10)
-    return n;
-  int upper = n / 10;
-  int lower = n - upper * 10;
-  if (n < 100) {
-    int sum = upper + lower;
-    if (sum > 9)
-      return digital_root(sum);
-    return(upper + lower);
-  }
-  if (upper > 9)
-    return lower + digital_root(upper);
-  
-  return EXIT_SUCCESS;
+
+  // return digital_root_iter(n);
+  return digital_root_recur(n);
 }
 
 int test_digital_root(void) {
