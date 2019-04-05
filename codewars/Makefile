@@ -1,2 +1,7 @@
+CC=gcc
 CFLAGS=-std=c99 -Wall -Werror
-LDFLAGS=-lm
+LDLIBS=-lm
+
+#%.o: %.c
+#	$(CC) $(CFLAGS) -c -o $@ $< $(LDLIBS)
+	

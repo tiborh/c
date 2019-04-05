@@ -38,6 +38,14 @@ int digital_root_recur(int n) {
   return digital_root_recur(n);
 }
 
+int digital_root_recur2(int n) {
+  int tenth = n / 10;
+  if (tenth == 0)
+    return n;
+  int last_digit = n - tenth * 10;
+  return digital_root_recur2(digital_root_recur2(tenth) + last_digit);
+}
+
 int digital_root(int n) {
   if (n < 0) {
     printf("Only non-negative integers are accepted.\n");
@@ -45,7 +53,8 @@ int digital_root(int n) {
   }
 
   // return digital_root_iter(n);
-  return digital_root_recur(n);
+  // return digital_root_recur(n);
+  return digital_root_recur2(n);
 }
 
 int test_digital_root(void) {
