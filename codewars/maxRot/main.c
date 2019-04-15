@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <assert.h>
-
-int num_of_digits(int n) {
-  int retval = log10(n);
-  return ++retval;
-}
+#include "maxRot.h" 
 
 int main(int argc, char** argv) {
-  test_maxRot();
+  if(argc > 1) {
+    int num;
+    sscanf(argv[1],"%d",&num);
+    printf("%lld\n", maxRot(num));
+  } else
+    puts("A natural number is expected as an argument.");
   return EXIT_SUCCESS;
 }
 

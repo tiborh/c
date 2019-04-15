@@ -1,12 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "maxRot.h"
+#include "digits.h"
 
-long long rotvals[100] = {};
+long long *rotvals;
 int rotvals_index = 0;
 
 void push_rotvals (long long n) {
-  if (rotvals_index == 99) {
-    printf("Buffer overrun. Exiting.\n");
+  if (rotvals_index == ARR_SIZE-1) {
+    puts("Buffer overrun. Exiting.");
     exit(EXIT_FAILURE);
   }
   rotvals[rotvals_index++] = n;
@@ -16,13 +16,44 @@ long long pop_rotvals(void) {
   return rotvals[--rotvals_index];
 }
 
+long long maxval(void) {
+  long long maxn = 0;
+
+  for(int i=0; i<rotvals_index; ++i)
+    if(*(rotvals+i) > maxn)
+      maxn=*(rotvals+i);
+  
+  return maxn;
+}
+
+void print_rotvals(void) {
+  for(int i = 0; i < rotvals_index; ++i)
+    printf(" %lld",*(rotvals+i));
+  printf("\n");
+}
+
 // sub-rot will require lots of extra functions to be defined. see digit_funcs.lisp
 
+void rotter(long long fn, long long ln) {
+  push_rotvals(unshift_digits(fn,ln));
+  if (ln < 10) {
+    return;
+  }
+  ln = first_to_last(ln);
+  push_rotvals(unshift_digits(fn,ln));
+  rotter(push_digit(fn,first_digit(ln)),rest_digits(ln));
+}
+
 long long maxRot(long long n) {
-  push_rotvals(n);
-  if (n < 10)
-    return n;
-  
+  rotvals = malloc(ARR_SIZE * sizeof(long long));
+  rotter(0,n);
+  //printf("rotvals_index: %d\n",rotvals_index);
+  printf("Stored in array: ");
+  print_rotvals();
+  long long maxn = maxval();
+  rotvals_index = 0;
+  free(rotvals);
+  return maxn;
 }
 
 
