@@ -1,7 +1,7 @@
 #include "maxRot.h"
 #include "digits.h"
 
-long long *rotvals;
+long long* rotvals;
 int rotvals_index = 0;
 
 void push_rotvals (long long n) {
@@ -34,19 +34,33 @@ void print_rotvals(void) {
 
 // sub-rot will require lots of extra functions to be defined. see digit_funcs.lisp
 
-void rotter(long long fn, long long ln) {
-  push_rotvals(unshift_digits(fn,ln));
-  if (ln < 10) {
+long long get_num(char* first, char* second) {
+  char dest[strlen(first)+strlen(second)+1];
+  strcpy(dest,first);
+  strcat(dest,second);
+  long long outnum = 0;
+  sscanf(dest,"%lld",&outnum);
+  return outnum;
+}
+
+void rotter(char* fn, char* ln) {
+  push_rotvals(get_num(fn,ln));
+  if (strlen(ln) < 2) {
     return;
   }
   ln = first_to_last(ln);
-  push_rotvals(unshift_digits(fn,ln));
+  //push_rotvals(get_num(fn,ln));
   rotter(push_digit(fn,first_digit(ln)),rest_digits(ln));
 }
 
 long long maxRot(long long n) {
   rotvals = malloc(ARR_SIZE * sizeof(long long));
-  rotter(0,n);
+  char sn[num_of_digits(n)+1];
+  sn[0] = '\0';
+  char fn[num_of_digits(n)+1];
+  fn[0] = '\0';
+  sprintf(sn,"%lld",n);
+  rotter(fn,sn);
   //printf("rotvals_index: %d\n",rotvals_index);
   printf("Stored in array: ");
   print_rotvals();

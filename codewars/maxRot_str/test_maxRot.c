@@ -17,7 +17,7 @@ Test(maxRot, ShouldPassAllTheTestsProvided) {
   dotest(21, 21);
   dotest(15, 51);
   dotest(108, 108);
-  dotest(150, 501);
+  dotest(150, 510);
   dotest(56789,68957);
   dotest(38458215, 85821534);
   dotest(195881031, 988103115);
